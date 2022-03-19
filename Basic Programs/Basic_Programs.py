@@ -99,7 +99,10 @@ print('Rockstar','Galaxy','Dinosour','Egg',sep='')
 #print in Python 2 as if it was Python 3
 #from __future__ import print_function
 
-
+print('\nTernary operator')
+a=6
+answer='positive' if a>0 else 'negative'
+print(answer)
 
 
 
