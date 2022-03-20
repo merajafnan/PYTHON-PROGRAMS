@@ -104,6 +104,34 @@ a=6
 answer='positive' if a>0 else 'negative'
 print(answer)
 
+print('\nPseudo Random Number')
+import random
+a=random.random() # a value between 0.0 <= < 1.0
+print(a)
+print(random.random())
+
+print('\nFixed Random Number')
+b=random.seed(19)
+print(random.random())
+c=random.seed(19)
+print(random.random())
+
+print('\nRolling dice - randrange')
+print(1+int(6*random.random()))
+print(random.randrange(1,7))
+
+print('\nRandom choice')
+a='abchdjdkdodjsns'
+b=['apple','banana','watermelon','muskmelon']
+print(random.choice(a))
+print(random.choice(b))
+
+a=random.random
+y=a()
+print(a)
+print(y)
+
+
 
 
 
