@@ -44,6 +44,7 @@ print('\nArea & Circumference Circle using Math function')
 from http.server import executable
 import imp
 import math
+from operator import length_hint
 
 from attr import define
 print('Area of Circle=',3.14*math.pi)
@@ -131,9 +132,62 @@ y=a()
 print(a)
 print(y)
 
+print('\nTrue and False values in Python')
+v=[None,0,"",False,[],(),{},"0",True,'a',1]
+for i in v:
+    if i:
+        print('True value: ',i)
+    else:
+        print('False Value: ',i)
 
+# def check_money():
+#     return money > 1000000
+# def check_salary():
+#     salary += 1
+#     return salary >= 1000
+# while True:
+#     has_good_money = check_money()
+#     has_good_salary = check_salary()
+#     if has_good_money or has_good_salary:
+#         print("I can live well")
 
+print('\nMultiple Strings with \ output same line')
+a='abc' 'def' 'ghi'
+print(a)
+b='abc' \
+  'def' \
+  'ghi'
+print(b)
 
+print('\nTripple Coated Strings in output diffrent line')
+a='''Rocstar
+moving ahead
+of the 
+galaxy'''
+print(a)
+
+print('\nString repetition and concatenation')
+a=2*'Rockstar'
+print(a)
+b='Rockstar'+'Galaxy'
+print(b)
+c='Dinosours'
+print('-'*len(c))
+
+print('\nCharacter in a string')
+a='Rockstar of the Galaxy'
+print(a[0],a[5],a[11],sep='    ')
+
+print('\nString slice (instead of substr)')
+a='Rockstar of the Galaxy'
+print(a[1:4],a[:6],a[4:],sep='<--->')
+
+# In Python strings are “immutable”, meaning you cannot change them. You can replace a whole string in avariable, but you cannot change it.
+
+print('\nHow to change a string')
+a='Rockstar of the Galaxy'
+b=a[0:9]+'and the Biggest Hero '+a[9:]
+print(b)
 
 
 
