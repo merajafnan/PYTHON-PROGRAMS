@@ -41,9 +41,11 @@ print('Area of Circle=',3.14*Rad*Rad)
 print('Circumference of Circle=',2*Rad*3.14)
 
 print('\nArea & Circumference Circle using Math function')
+from cgi import print_arguments
 from http.server import executable
 import imp
 import math
+from operator import indexOf, length_hint
 
 from attr import define
 print('Area of Circle=',3.14*math.pi)
@@ -131,10 +133,133 @@ y=a()
 print(a)
 print(y)
 
+print('\nTrue and False values in Python')
+v=[None,0,"",False,[],(),{},"0",True,'a',1]
+for i in v:
+    if i:
+        print('True value: ',i)
+    else:
+        print('False Value: ',i)
 
+# def check_money():
+#     return money > 1000000
+# def check_salary():
+#     salary += 1
+#     return salary >= 1000
+# while True:
+#     has_good_money = check_money()
+#     has_good_salary = check_salary()
+#     if has_good_money or has_good_salary:
+#         print("I can live well")
 
+print('\nMultiple Strings with \ output same line')
+a='abc' 'def' 'ghi'
+print(a)
+b='abc' \
+  'def' \
+  'ghi'
+print(b)
 
+print('\nTripple Coated Strings in output diffrent line')
+a='''Rocstar
+moving ahead
+of the 
+galaxy'''
+print(a)
 
+print('\nString repetition and concatenation')
+a=2*'Rockstar'
+print(a)
+b='Rockstar'+'Galaxy'
+print(b)
+c='Dinosours'
+print('-'*len(c))
+
+print('\nCharacter in a string')
+a='Rockstar of the Galaxy'
+print(a[0],a[5],a[11],sep='    ')
+
+print('\nString slice (instead of substr)')
+a='Rockstar of the Galaxy'
+print(a[1:4],a[:6],a[4:],sep='<--->')
+
+# In Python strings are “immutable”, meaning you cannot change them. You can replace a whole string in avariable, but you cannot change it.
+
+print('\nHow to change a string')
+a='Rockstar of the Galaxy'
+b=a[0:9]+'and the Biggest Hero '+a[9:]
+print(b)
+
+print('\nString functions and methods (len, upper, lower)')
+a='rockstar'
+b='GALAXY'
+print(a.upper())
+print(b.lower())
+print(len(a))
+
+print('\nindex in string')
+a='Rockstar of the Galaxy'
+print(a.index('x'))
+print(a.index('of'))
+print(a.index('a',3))
+print(a.index('a',10))
+print(a.index('of',4,16))
+
+print('\nrindex in string / Last Occurance')
+a='Rockstar of the Galaxy'
+print(a.rindex('a'))
+
+print('\n rfind,find,index,rindex')
+print(a.rfind('a'))
+print(a.rfind('z'))
+print(a.find('a'))
+print(a.find('z'))
+print(a.index('a'))
+print(a.rindex('a'))
+
+print('\nin string')
+a='Rockstar of the Galaxy'
+if 'of' in a:
+    print('Present')
+else:
+    print('not present')
+
+print('\nindex if in string')
+a='Rockstar of the Galaxy'
+t='of'
+if t in a:
+    l=a.index(t)
+    print(t+" is at "+str(l))
+
+file = r'C:\Users\merhassa\sample.txt'
+print(file)
+
+print('\nFor Loop with Break')
+a='Rockstar of the Galaxy'
+for i in a:
+    if i == " ":
+        break
+    print(i,end="")
+
+print('\nFor Loop with Continue')
+a='Rockstar of the Galaxy'
+for i in a:
+    if i == " ":
+        continue
+    print(i,end="")
+
+print('\nWhile Loop')
+import random
+a=0
+while a<=150:
+    print(a)
+    a += random.randrange(1,35)
+
+# You can stop an infinite loop with CTRL + C 
+# exit - will stop your program no matter where you call it.
+# return - will return from a function (it will stop the specific function only)
+# break - will stop the current “while” or “for” loop
+# continue - will stop the current iteration of the current “while” or “for” loop
 
 
 
