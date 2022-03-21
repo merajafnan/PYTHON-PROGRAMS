@@ -41,10 +41,11 @@ print('Area of Circle=',3.14*Rad*Rad)
 print('Circumference of Circle=',2*Rad*3.14)
 
 print('\nArea & Circumference Circle using Math function')
+from cgi import print_arguments
 from http.server import executable
 import imp
 import math
-from operator import length_hint
+from operator import indexOf, length_hint
 
 from attr import define
 print('Area of Circle=',3.14*math.pi)
@@ -189,6 +190,76 @@ a='Rockstar of the Galaxy'
 b=a[0:9]+'and the Biggest Hero '+a[9:]
 print(b)
 
+print('\nString functions and methods (len, upper, lower)')
+a='rockstar'
+b='GALAXY'
+print(a.upper())
+print(b.lower())
+print(len(a))
+
+print('\nindex in string')
+a='Rockstar of the Galaxy'
+print(a.index('x'))
+print(a.index('of'))
+print(a.index('a',3))
+print(a.index('a',10))
+print(a.index('of',4,16))
+
+print('\nrindex in string / Last Occurance')
+a='Rockstar of the Galaxy'
+print(a.rindex('a'))
+
+print('\n rfind,find,index,rindex')
+print(a.rfind('a'))
+print(a.rfind('z'))
+print(a.find('a'))
+print(a.find('z'))
+print(a.index('a'))
+print(a.rindex('a'))
+
+print('\nin string')
+a='Rockstar of the Galaxy'
+if 'of' in a:
+    print('Present')
+else:
+    print('not present')
+
+print('\nindex if in string')
+a='Rockstar of the Galaxy'
+t='of'
+if t in a:
+    l=a.index(t)
+    print(t+" is at "+str(l))
+
+file = r'C:\Users\merhassa\sample.txt'
+print(file)
+
+print('\nFor Loop with Break')
+a='Rockstar of the Galaxy'
+for i in a:
+    if i == " ":
+        break
+    print(i,end="")
+
+print('\nFor Loop with Continue')
+a='Rockstar of the Galaxy'
+for i in a:
+    if i == " ":
+        continue
+    print(i,end="")
+
+print('\nWhile Loop')
+import random
+a=0
+while a<=150:
+    print(a)
+    a += random.randrange(1,35)
+
+# You can stop an infinite loop with CTRL + C 
+# exit - will stop your program no matter where you call it.
+# return - will return from a function (it will stop the specific function only)
+# break - will stop the current “while” or “for” loop
+# continue - will stop the current iteration of the current “while” or “for” loop
 
 
 
