@@ -41,12 +41,15 @@ print('Area of Circle=',3.14*Rad*Rad)
 print('Circumference of Circle=',2*Rad*3.14)
 
 print('\nArea & Circumference Circle using Math function')
-from cgi import print_arguments
+from cProfile import run
+from cgi import print_arguments, print_form
+from decimal import ROUND_CEILING
 from http.server import executable
 import imp
 import math
 from operator import indexOf, length_hint
 from os import system
+from tkinter.messagebox import YESNO
 from winreg import REG_OPTION_BACKUP_RESTORE
 
 from attr import define
@@ -365,6 +368,113 @@ print(r'This is {n}')
 print(f'This is {n}')
 print(rf'This is {n}')
 print(fr'This is {n}')  # this is better (for vim)
+
+# LIST - Square Bracket
+print('\nlists example 1')
+l=['a',1,'Rockstar Galaxy',['Moon','Stars',99],
+{a : ' \ Gardian of Galaxy 1 ', b : 'Gardian of Galaxy 2'}]
+print(l)
+
+
+print('\nlists example 2')
+p=['Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto']
+print(p)
+print(p[0],p[1])
+print(type(p[0]))
+print(p[0:2])
+print(p[2:4])
+print(p[:])
+print(p[:5])
+print(p[5:])
+
+
+print('\n List slice with steps \
+    \n List slice with step: [start:end:step]')
+n=['a','b','c','d','e','f','g','h','i','j','k','l']
+print(n[::])
+print(n[:1])
+print(n[::1])
+print(n[::2])
+print(n[::3])
+print(n[1::3])
+print(n[1:5:2])
+print(n[1:20:3])
+
+print('\nChange the list')
+x = ['abc', 'def', 'ghi', 'jkl']
+y = 'Rockstar'
+x[1]='mno'
+print(x)
+x[1:3]=['ijk','lmn','opq']
+print(x)
+x[1:3]=['rst']
+print(x)
+x[1:1]=['uvw','xyz']
+print(x)
+x[1]=['123','456']
+print(x)
+print(list(y))
+
+print('\nChange with steps')
+y=list('Rockstar')
+y[1::2]=[0,0,0,0]
+print(y)
+
+print('\nShallow Copy')
+y=list('Rockstar')
+x=y
+y[0:4]='Galaxy '
+print(y)
+print(x)
+
+print('\nDeep Copy')
+y=list('Rockstar')
+x=y[:]
+y[0:4]='Galaxy '
+print(y)
+print(x)
+
+print('\nDeep Copy')
+import copy
+y=list('Rockstar')
+x=copy.deepcopy(y)
+y[0:4]='Galaxy '
+print(y)
+print(x)
+
+print('\nJoin')
+y=list('Rockstar')
+j=':'.join(y)
+print(j)
+
+print('\njoin list of numbers & strings - Using map')
+b=['G','A',2,3,'X','Y']
+j=':'.join(map(str,b))
+print(j)
+
+print('\njoin list of numbers & strings - Using link commpression')
+b=['G','A',2,3,'X','Y']
+j=":".join(str(x) for x in b)
+print(j)
+
+print('\nSplit')
+b='G:A:2:3:X:Y'
+print(b.split(':'))
+c='Rockstar of the Galaxy'
+print(c.split())
+
+print('\nin list')
+c=['Rockstar','of','the','Galaxy']
+if 'moon' in c:
+    print('Item Found')
+else:
+    print('Item not found')
+
+print('\nWhere is the element in the list')
+c=['Rockstar','of','the','Galaxy']
+print(c.index('the'))
+
+
 
 
 
