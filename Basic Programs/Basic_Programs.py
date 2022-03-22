@@ -46,6 +46,8 @@ from http.server import executable
 import imp
 import math
 from operator import indexOf, length_hint
+from os import system
+from winreg import REG_OPTION_BACKUP_RESTORE
 
 from attr import define
 print('Area of Circle=',3.14*math.pi)
@@ -261,8 +263,108 @@ while a<=150:
 # break - will stop the current “while” or “for” loop
 # continue - will stop the current iteration of the current “while” or “for” loop
 
+print('\nFormatted printing')
+a = 23
+n = 'Rockstar'
+print('Concat Basic - ' + 'Name = ' + n + ' Age = ' + str(a))
+print('Concat Modulous - ' +'Name = %s and Age = %s' % (n,str(a)))
+print('Concat F String - ' + f'Name = {n} and Age = {a}')
+print('Concat Format - ' + 'Name = {} and Age = {}'.format(n,a))
+print('Concat Format - ' + 'Name = {0} and Age = {1}'.format(n,a))
+print('Concat Format - ' + 'Name = {1} and Age = {0}'.format(n,a))
+print('Concat Format - ' + 'Name = {name} and Age = {age}'.format(age=a,name=n))
 
 
+print('\nFormat columns')
+l=[['Rockstar',1],
+['Galaxy',12],
+['Moon',123],
+['Sun',1234567],
+['Star',123456789]]
+
+for i in l:
+    print('{}{}'.format(i[0],i[1]))
+
+print('_'*16)
+for j in l:
+    print("{:<8}|{:>7}".format(j[0],j[1]))
+
+print('\nExamples using format - alignment')
+a='Rockstar'
+print('{}'.format(a))
+print("'{:}'".format(a))
+print("'{:^15}'".format(a))
+print("'{:>15}'".format(a))
+print("'{:<15}'".format(a))
+
+print('\nFormat characters and types')
+n = 97
+print('Number :     {:n}'.format(n))
+print('Binary :     {:b}'.format(n))
+print('Character :     {:c}'.format(n))
+print('Decimal :     {:d}'.format(n))
+print('Octal :     {:o}'.format(n))
+print('Hexa :     {:X}'.format(n))
+print('hexa :     {:x}'.format(n))
+print('Default to decimal :     {}'.format(n))
+
+print('\nFormat floating point number')
+n=34.567887695
+print('exponent :       {:e}'.format(n))
+print('Exponent :       {:e}'.format(n))
+print('fixed point (Default Precision 6):       {:f}'.format(n))
+print('Fixed Point (Default Precision 6) :       {:F}'.format(n))
+print('Fixed Point (Precision set to 2) :       {:.2f}'.format(n))
+print('generic (Default Precision Combined 6) :       {:g}'.format(n))
+print('Generic (Default Precision Combined 6) :       {:G}'.format(n))
+print('Number :       {:n}'.format(n))
+print('Default :       {}'.format(n))
+
+
+print('\nf-strings (formatted string literals)')
+name='Meraj Hassan'
+age=28.3
+pi=3.141592653589793
+r=2
+
+print(f'The user {name} was born {age} years ago')
+print(f'The user {name:20} was born {age} years ago')
+print(f'The user {name:>20} was born {age} years ago')
+print(f'The user {name:*^20} was born {age:#<20} years ago')
+
+print(f'Pi is {pi:.3}')     # number of digits (defaults n = number)
+print(f'Pi is {pi:.3f}')    # number of digits after decimal point
+
+print(f"Area is '{pi*r**2}'")
+print(f"Area is '{pi*r**2:.3f}'")
+
+print('\nprintf using old % syntax \
+It is recommended to use the format method! \
+\nTo print { include {{. \
+\nTo print } include }}.')
+
+n=65
+print('%s'%n)
+print('a = {} b = {}'.format(2,3))
+print('a = %d b = %d'% (2,3))
+print('%10s'%n)
+print('%c'%n)
+print('%0.5d'%n)
+print('{{}}'.format(n))
+print('{{ {} }}'.format(n))
+print('%{}'.format(n))
+
+print('\nExamples using format with attributes of objects')
+import sys
+print('{0.executable}'.format(sys))
+print('{system.argv[0]}'.format(system=sys))
+
+print('\nraw f-strings')
+n='Rockstar'
+print(r'This is {n}')
+print(f'This is {n}')
+print(rf'This is {n}')
+print(fr'This is {n}')  # this is better (for vim)
 
 
 
