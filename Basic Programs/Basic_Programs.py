@@ -46,10 +46,14 @@ from cgi import print_arguments, print_form
 from decimal import ROUND_CEILING
 from http.server import executable
 import imp
+from inspect import stack
 import math
 from operator import indexOf, length_hint
 from os import system
+from sqlite3 import adapt
+from time import monotonic
 from tkinter.messagebox import YESNO
+from turtle import st
 from winreg import REG_OPTION_BACKUP_RESTORE
 
 from attr import define
@@ -473,6 +477,93 @@ else:
 print('\nWhere is the element in the list')
 c=['Rockstar','of','the','Galaxy']
 print(c.index('the'))
+
+print('\n.insert')
+c=['Rockstar','of','the','Galaxy']
+c.insert(3,'Moon')
+print(c)
+c.insert(len(c),'star')
+print(c)
+
+print('\nappend')
+c=['Rockstar','of','the','Galaxy']
+c.append("and the stars")
+print(c)
+
+print('\nremove')
+c=['Rockstar','of','the','Galaxy','the']
+c.remove('the')
+print(c)
+
+print('\nRemove element by index [].pop')
+c=['Rockstar','of','the','Galaxy','the']
+c.pop()
+print(c)
+c.pop(2)
+print(c)
+
+print('\nRemove several elements of list by index')
+c=['Rockstar','of','the','Galaxy','the']
+c[2:4]=[]
+print(c)
+
+print('\nUse list as a queue | FIFO Logic ') # FIFO Logic
+a_queue = []
+print(a_queue)
+a_queue.append('Rockstar')
+a_queue.append('of')
+a_queue.append('the')
+a_queue.append('Galaxy')
+print(a_queue)
+pop = a_queue.pop(2)
+print(pop)
+print(a_queue)
+
+print('\nQueue using deque from collections | FIFO Logic')
+from collections import deque
+a_dqueue = deque(['Rockstar','of','the','Galaxy'])
+print(a_dqueue)
+a_dqueue.append('and Stars')
+print(a_dqueue)
+a_dqueue.popleft()
+print(a_dqueue)
+
+print('\nFixed size queue | FIFO Logic')
+from collections import deque
+a_dqueue = deque([],maxlen=3)
+a_dqueue.append('Rockstar')
+a_dqueue.append('of')
+a_dqueue.append('the')
+print(a_dqueue)
+a_dqueue.append('Galaxy')
+print(a_dqueue)
+
+
+print('\nList as a stack | LIFO Logic')  # LIFO Logic
+stack = []
+print(stack)
+stack.append('Rockstar')
+stack.append('of')
+stack.append('the')
+stack.append('Galaxy')
+print(stack)
+stack.pop()
+print(stack)
+stack.pop()
+print(stack)
+
+print('\nstack with deque')
+dstack = deque([])
+print(dstack)
+dstack.append('Rockstar')
+dstack.append('of')
+dstack.append('the')
+dstack.append('Galaxy')
+print(dstack)
+dstack.pop()
+print(dstack)
+dstack.pop()
+print(dstack)
 
 
 
