@@ -48,15 +48,16 @@ from http.server import executable
 import imp
 from inspect import stack
 import math
-from operator import indexOf, length_hint
+from operator import indexOf, itemgetter, length_hint, truediv
 from os import system
 from sqlite3 import adapt
-from time import monotonic
+from time import monotonic, strftime
 from tkinter.messagebox import YESNO
 from turtle import st
 from winreg import REG_OPTION_BACKUP_RESTORE
 
 from attr import define
+from sortedcontainers import SortedDict
 print('Area of Circle=',3.14*math.pi)
 print('Circumference of Circle=',2*Rad*math.pi)
 
@@ -566,9 +567,79 @@ dstack.pop()
 print(dstack)
 
 
+# SORTING
 
+print('\nSorting & Reverse Sort')
+planets = ['Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto']
+print(planets)
+planets.sort()
+print(planets)
+planets.sort(reverse=True)
+print(planets)
 
+print('\nReverse a number and name')
+num = 1234567
+name = 'Rockstar'
+num = str(num)
+num = list(num)
+num.sort(reverse=True)
+name = list(name)
+name.sort(reverse=True)
+print(num)
+print(name)
 
+print('\nReverse ignoring negative number')
+num_list = [1,4,6,8,-1,-5,9,12,-11,16,-20]
+num_list.sort()
+print(num_list)
+num_list.sort(reverse=True)
+print(num_list)
+num_list.sort(key=abs)
+print(num_list)
+num_list.sort(key=abs, reverse=True)
+print(num_list)
+
+print('\nsort mixed')
+mixed_data = [1,'a',2,'c',9,'f',4,'d']
+mixed_data_str = []
+for i in mixed_data:
+    mixed_data_str.append(str(i))
+    continue
+mixed_data_str.sort()
+print(mixed_data_str)
+
+print('\nKey Sort')
+planets = ['Mercury','Venus','Earth','Mars','Jupiter','Saturn','Uranus','Neptune','Pluto']
+planets.sort(key=len)
+print(planets)
+
+print('\nSort tuples')
+planets = [('Mercury','M',1),('Venus','V',2,6),('Earth',3,7),('Mars','M',4)]
+print(sorted(planets)) # Sort by the first Element of each Tuple
+print(sorted(planets, key=lambda s:s[2]))   # Sort by the 3rd Element of each Tuple
+print(sorted(planets,key=itemgetter(2)))
+print(planets)
+
+# The sort() method will sort a list in-place and return None.
+# The built-in sorted() function will return the sorted list and leave the original list intact
+
+print('\nSorting Characters of String')
+item = 'Rockstar'
+l = sorted(item)
+item_sorted = ''.join(l)
+print(item_sorted)
+
+# RANGE
+print('\nRange')
+for i in range(1,9,2):
+    print(i,end='')
+
+print('\nLooping over index')
+item = ['Rokstar','Of','The','Galaxy',78]
+for i in item:
+    print(i,end=' ')
+for j in range(len(item)):
+    print(item[j],end=' ')
 
 
 
