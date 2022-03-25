@@ -44,6 +44,7 @@ print('\nArea & Circumference Circle using Math function')
 from cProfile import run
 from cgi import print_arguments, print_form
 from decimal import ROUND_CEILING
+import enum
 from http.server import executable
 import imp
 from inspect import stack
@@ -640,6 +641,41 @@ for i in item:
     print(i,end=' ')
 for j in range(len(item)):
     print(item[j],end=' ')
+
+
+print('\nEnumerate List')
+planets = [('Mercury','M',1),('Venus','V',2,6),('Earth',3,7),('Mars','M',4)]
+for i,planets in enumerate(planets):
+    print(i,planets)
+
+print('\nList operators')
+a = ['one','two']
+b = ['three']
+print(a+b)
+print(a * 2)
+
+print('\nList of List')
+a = ['one','two']
+b = [a,'three']
+print(b)
+
+print('\nList assignment')
+x,y = 1,2
+print(x)
+print(y)
+x,y = y,x
+print(x)
+print(y)
+
+
+#Tuple
+# A tuple is a fixed-length immutable list. It cannot change its size or content.
+# A tuple is denoted with parentheses: (1,2,3)
+
+#List
+# Elements of a list can be changed via their index or via the list slice notation.
+# A list can grow and shrink using append and pop methods or using the slice notation.
+# A list is denoted with square brackets: [1, 2, 3]
 
 
 
