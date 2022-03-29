@@ -43,15 +43,18 @@ print('Circumference of Circle=',2*Rad*3.14)
 print('\nArea & Circumference Circle using Math function')
 from cProfile import run
 from cgi import print_arguments, print_form
+from dataclasses import dataclass
 from decimal import ROUND_CEILING
 import enum
 from http.server import executable
 import imp
+from importlib.metadata import FileHash
 from inspect import stack
 import math
 from operator import indexOf, itemgetter, length_hint, truediv
 from os import system
 from sqlite3 import adapt
+from telnetlib import EL
 from time import monotonic, strftime
 from tkinter.messagebox import YESNO
 from turtle import st
@@ -677,4 +680,122 @@ print(y)
 # A list can grow and shrink using append and pop methods or using the slice notation.
 # A list is denoted with square brackets: [1, 2, 3]
 
+#append vs. extend
+print('\nAppend vs. Extend')
+a = ['Foo Bar', 'Orgo Morgo']
+b = ['Joe Doe', 'Jane Doe']
+a.append(b)
+print('Append = ',a)
+
+a = ['Foo Bar', 'Orgo Morgo']
+b = ['Joe Doe', 'Jane Doe']
+a.extend(b)
+print('Extend = ',a)
+
+print('\nAppend vs. Extend')
+a = ['Foo Bar', 'Orgo Morgo']
+a.append('Qox')
+print('Append = ',a)
+
+a = ['Foo Bar', 'Orgo Morgo']
+a.extend('Qox')
+print('Extend = ',a)
+
+print('\Split & Extend')
+a = ['ABC DEF','GHI JKL']
+b = []
+for i in a:
+    b.extend(i.split())
+print(b)
+
+
+#Files
+print('\Files')
+#filename = '/c/Users/merhassa/OneDrive - Cisco/Desktop/GIT REPO/Basic Programs/sample.txt'
+with open('sample.txt','r') as fh:
+    for l in fh:
+        print(l,end='')
+f = open('sample.txt','r')
+print('f.name = ',f.name)
+print('f.read =\n',f.read())
+f.close()
+
+print('\nFilehandle with and without')
+filename = 'sample.txt'
+f = open(filename,'r')
+print(f)
+data_ = f.read()
+print('read = \n',f.read())
+
+txt = "     banana     "
+x = txt.strip()
+print("of all fruits", x, "is my favorite")  
+
+print('\nRead file remove newlines')
+with open('sample.txt','r') as fh:
+    for line_ in fh:
+        line_ = line_.rstrip("\n")
+        print(line_)
+    fh.close()
+
+print('\nRead all the lines into a list')
+with open('sample.txt') as fh:
+    Aline_ = fh.readline()
+print(len(Aline_))
+print(Aline_)
+for l in Aline_:
+    print(l)
+fh.close()
+
+print('\nRead all the characters into a string')
+with open('sample.txt','r') as fh:
+    Rline_ = fh.read()
+print(len(Rline_))
+print(Rline_)
+
+
+print('\nOpen file exception handling')
+try:
+    with open('sample2.txt',"r") as fh:
+        line_=fh.read()
+except Exception as e:
+    print('There was some error i  the file')
+    print(e)
+    print(type(e).__name__)
+print('Still Running')
+
+
+print('\nWriting to file')
+with open('sample2.txt','r') as fh:
+    r1 = fh.read()
+    print('Before Write = \n',r1)
+    fh.close()
+with open('sample2.txt','w') as fh:
+    fh.write('Amterdam')
+    fh.close()
+with open('sample2.txt','r') as fh:
+    r1 = fh.read()
+    print('After Write = \n',r1)
+    fh.close()
+
+
+print('\nAppend to file')
+with open('sample2.txt','a') as fh:
+    fh.write('Hawai')
+with open('sample2.txt','r') as fh:
+    r1 = fh.read()
+    print('After Append = \n',r1)
+    fh.close()
+
+
+print('\nOpen and read file')
+with open('a.txt','r') as fh:
+    for i in fh:
+        print(i)
+fh.close()
+with open('a.txt','r') as fh:
+    for i in fh:
+        print(i,end="")
+    # print(fh[1])  TypeError: '_io.TextIOWrapper' object is not subscriptable
+fh.close()
 
