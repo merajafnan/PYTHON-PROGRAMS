@@ -1,0 +1,10 @@
+Number = 0 Occurance = 0 
+Number = 1 Occurance = 3 
+Number = 2 Occurance = 3 
+Number = 3 Occurance = 4 
+Number = 4 Occurance = 2 
+Number = 5 Occurance = 2 
+Number = 6 Occurance = 1 
+Number = 7 Occurance = 2 
+Number = 8 Occurance = 1 
+Number = 9 Occurance = 1 
