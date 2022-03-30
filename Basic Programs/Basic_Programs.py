@@ -43,6 +43,7 @@ print('Circumference of Circle=',2*Rad*3.14)
 print('\nArea & Circumference Circle using Math function')
 from cProfile import run
 from cgi import print_arguments, print_form
+import collections
 from dataclasses import dataclass
 from decimal import ROUND_CEILING
 import enum
@@ -50,14 +51,19 @@ from http.server import executable
 import imp
 from importlib.metadata import FileHash
 from inspect import stack
+from ipaddress import collapse_addresses
 import math
-from operator import indexOf, itemgetter, length_hint, truediv
+from operator import indexOf, itemgetter, length_hint, ne, truediv
 from os import system
+from queue import PriorityQueue
 from sqlite3 import adapt
 from telnetlib import EL
 from time import monotonic, strftime
 from tkinter.messagebox import YESNO
 from turtle import st
+from typing import OrderedDict
+from unittest import result
+from urllib.parse import urldefrag
 from winreg import REG_OPTION_BACKUP_RESTORE
 
 from attr import define
@@ -798,4 +804,170 @@ with open('a.txt','r') as fh:
         print(i,end="")
     # print(fh[1])  TypeError: '_io.TextIOWrapper' object is not subscriptable
 fh.close()
+
+######################---DICTIONARY---#################################################
+
+print('\n Dictionary')
+user = {}
+user['Name'] = 'Rockstar'
+user['Type'] = 'Galaxy'
+print(user)
+user['Name'] = 'MoonStar'
+print(user['Name'])
+
+user = {'Name':'Rockstar','Type':'Galaxy'}
+print(user)
+print(user.keys())
+print(user.values())
+print(user.items())
+
+print('\nLoop over keys')
+user = {'Name':'Rockstar','Type':'Galaxy'}
+for i in user.keys():
+    # print(i)
+    print('Key:{} Vlue:{}'.format(i,user[i]))
+
+print('\n Loop Over Items')
+for i,j in user.items():
+     print('Key:{} Vlue:{}'.format(i,j))
+
+print('\nDoes the key & Value exist?')
+user = {'Name':'Rockstar','Type':'Galaxy'}
+print('Name' in user)
+print('Type' in user)
+print('Rockstar' in user.values())
+print('Moon' in user.values())
+
+print('\n Delete Key')
+user = {'Name':'Rockstar','Type':'Galaxy','Email':'rockstarofgalaxy@glx.com'}
+del user['Type']
+print(user)
+user.pop('Email')
+print(user)
+
+print('\n List of dictionaries')
+p = [{'Name':'Rockstar','Type':'Galaxy','Email':'rockstarofgalaxy@glx.com'},{'Name':'Moonstar','Type':'Moonar','Email':'moonstar@moon.com','Address':'Moon','Crators':['Tycho','Apollo','Aitken']}]
+print(p)
+print(p[0]['Name'])
+print(p[0]['Name'][0])
+print(p[1]['Crators'])
+print(p[1]['Crators'][0])
+
+print('\nShared dictionary')
+SD = [
+    {
+        'name':'foo',
+        'id':'1'
+    },
+    {
+        'name':'bar',
+        'id':'2'
+    },
+    {
+        'name':'moo',
+        'id':'3'
+    }
+]
+
+print(SD)
+nm = {}
+id = {}
+for i in SD:
+    nm[i['name']] = i
+    id[i['id']] = i
+print(nm)
+print(id)
+
+print(nm['foo'])
+nm['foo']['email'] = 'foo@amazon.com'
+print(nm['foo'])
+print(id['1'])
+print(SD)
+
+
+print('\nimmutable collection: tuple as dictionary key')
+p = {}
+p1 = (2,3)
+p2 = (4,5)
+p[p1] = 'James'
+p[p2] = 'Jhon'
+print(p)
+for i in p.keys():
+    print(i)
+    print(i.__class__.__name__) # type(i)
+    print(p[i])
+
+print('\nimmutable numbers: numbers as dictionary key')
+nm = {
+    1: 'Rockstar',
+    2: 'of',
+    3: 'Galaxy',
+}
+print(nm)
+print(nm[1])
+
+
+print('\nSorting of diictionary')
+nm1 = {'Type':'Galaxy','Name':'Rockstar'}
+nm2 = {2: 'Rockstar',3: 'of',1: 'Galaxy',}
+print(sorted(nm1))
+print(sorted(nm2))
+print(sorted(nm2.values()))
+
+# sort using a lambda expression
+print('\nsort using a lambda expression')
+s={
+    'Rockstar' : 20,
+    'Moonstar' : 10,
+    'Galaxystar' :  60
+}
+sn = sorted(s,key=lambda x: s[x])
+print(sn)
+for i in sn:
+    print('{} : {}'.format(i,s[i]))
+
+print('\nsort acording to values')
+s={
+    'Rockstar' : 20,
+    'Moonstar' : 10,
+    'Galaxystar' :  60
+}
+sn = sorted(s.values())
+print(sn)
+sn1 = sorted(s,key=s.__getitem__)
+print(sn1)
+for i in sn1:
+    print('{}:{}'.format(i,s[i]))
+
+print('\nChange order of keys in dictionary - OrderedDict')
+import collections
+
+d= collections.OrderedDict()
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+d['d'] = 4
+
+print(d)
+d.move_to_end('a')
+print(d)
+d.move_to_end('c',last=False)
+print(d)
+
+print("\nSet order of keys in dictionary - OrderedDict")
+d= collections.OrderedDict()
+d['a'] = 1
+d['b'] = 2
+d['c'] = 3
+d['d'] = 4
+OR =('b','c','d','a')
+s = OrderedDict(sorted(d.items(), key=lambda x: OR.index(x[0])))
+print(s)
+
+
+
+
+
+
+
 
