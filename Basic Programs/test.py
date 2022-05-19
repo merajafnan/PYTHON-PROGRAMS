@@ -1,2 +1,1 @@
-print(14%26)
-print('A'+'B')
+neighbor.\\d\\d\\.\\d\\d\\d\\.\\d\\d\\.\\d\\n....remote.as.\\d\\d\\d\\d\\d\\n....local.as.\\d\\d\\d\\d\\d
