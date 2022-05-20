@@ -1,8 +1,3 @@
-from operator import index
-from textwrap import indent
-from time import process_time_ns
-
-
 text = '''
 This is a very long text.
 OK, maybe it is not that long after all.
