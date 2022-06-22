@@ -1,3 +1,0 @@
-Tomato=78
-Avocado=10
-Pumpkin=100
