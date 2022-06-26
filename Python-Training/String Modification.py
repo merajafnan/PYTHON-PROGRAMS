@@ -19,7 +19,7 @@ print('New Unique String: {}'.format(str3))
 # add 'saturn' at end of str1
 str_list.append("Saturn")
 str_string = " ".join(str_list)
-print('<Saturn> added at the end of String: {}'.format(str1))
+print('<Saturn> added at the end of String: <{}>'.format(str1))
 
 # add 'jupiter' after 'jump' of str1
 ind = str_list.index('jump')
@@ -34,7 +34,7 @@ print('<Aeroplane> removed from the list: {}'.format(str_list))
 # merge Str1 & str2 string with '_'
 str_list = " ".join(str_list)
 str_merge = '_'.join([str_list,str2])
-print('String after merge: {}'.format(str_merge))
+print('String after merge: <{}>'.format(str_merge))
 
 print('Split String after merge: {}'.format(str_merge.split()))
 

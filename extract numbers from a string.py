@@ -15,5 +15,5 @@ digits = []
 for i in str:
     if i.isdigit():
         digits.append(i)
-print('Digits in String are: {}'.format(digits))
+print('Digits in String are: <{}>'.format(digits))
 
