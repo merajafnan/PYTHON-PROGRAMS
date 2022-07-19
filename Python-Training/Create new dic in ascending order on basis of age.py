@@ -1,5 +1,5 @@
 str= "jhon is 34 , Mojo is 30 , Tom is 18 , Rambo is 33 and Jhonny is 31"
-
+join kr pahle
 #Split String in list
 str = str.split()
 print(str)
