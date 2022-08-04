@@ -54,14 +54,3 @@ for l in k: # l = MAC Address
             print("{} is not a valid Mac-Address due to size mismatch".format(l))
     else:
         print("{} is not a valid Mac-Address it contains <{}> and <{}>".format(l,l[4],l[9]))
-
-
-
-
-
-
-
-
-
-
-
