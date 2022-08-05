@@ -62,6 +62,6 @@ for l in k: # l = MAC Address
 
 
 
-
+dc1_gw1, dc1_gw2, dc2_gw1, dc2_gw2, dc3_gw1, dc3_gw2, branch1_gw1, branch1_gw2, branch2_gw1, branch2_gw2, branch3_gw1, branch3_gw2.
 
 
