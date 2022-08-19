@@ -11,10 +11,11 @@ interface = re.findall(r'te\d/\d',str)
 data_output = re.findall(r'(?<=te\d/\d,)..........',str)
 # print(switch,'\n',interface,'\n',data_output)
 op = {}
+j = 0
 for i in switch:
-    for j in interface:
-        op[i] = j
-
+    op[i] = interface[j]
+    j += 1
+print(op)
 z=0
 for k,v in op.items():
     op[k] = {}
